@@ -19,7 +19,7 @@ const Features = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-6 pt-8 px-4">
 
-        <div className="card bg-base-100 shadow-xl rounded py-4  ">
+        <div className="card bg-base-100 shadow-xl rounded py-4 border-b-2 border-rose-500  ">
           <figure>
             <img
               src={img1}
@@ -28,11 +28,12 @@ const Features = () => {
             />
           </figure>
           <div className="card-body text-center ">
-            <p>Expert guidance for personalized <br />fitness plans.</p>
+            <h1 className="text-[#F72464] font-extrabold uppercase">Trainer-Advice</h1>
+            <p className="text-sm">Expert guidance for personalized <br />fitness plans.</p>
           </div>
         </div>
 
-        <div className="card bg-base-100 shadow-xl rounded py-4">
+        <div className="card bg-base-100 shadow-xl rounded py-4 border-b-2 border-rose-500  ">
           <figure>
             <img
               src={img2}
@@ -41,11 +42,12 @@ const Features = () => {
             />
           </figure>
           <div className="card-body text-center ">
-            <p>Targeted exercises to sculpt <br />and strengthen muscles.</p>
+          <h1 className="text-[#F72464] font-extrabold uppercase">Musculation</h1>
+            <p className="text-sm">Targeted exercises to sculpt <br />and strengthen muscles.</p>
           </div>
         </div>
 
-        <div className="card bg-base-100 shadow-xl rounded py-4">
+        <div className="card bg-base-100 shadow-xl rounded py-4 border-b-2 border-rose-500  ">
           <figure>
             <img
               src={img3}
@@ -54,12 +56,13 @@ const Features = () => {
             />
           </figure>
           <div className="card-body text-center ">
-            <p>Cardio workouts tailored for <br />runners of all levels.</p>
+          <h1 className="text-[#F72464] font-extrabold uppercase">Fitness Running</h1>
+            <p className="text-sm">Cardio workouts tailored for <br />runners of all levels.</p>
           </div>
         </div>
 
 
-        <div className="card bg-base-100 shadow-xl rounded py-4">
+        <div className="card bg-base-100 shadow-xl rounded py-4  border-b-2 border-rose-500  ">
           <figure>
             <img
               src={img4}
@@ -68,12 +71,13 @@ const Features = () => {
             />
           </figure>
           <div className="card-body text-center ">
-            <p>Intense routines for building muscle <br /> mass and definition.</p>
+          <h1 className="text-[#F72464] font-extrabold uppercase">Bodybuilding</h1>
+            <p className="text-sm">Intense routines for building muscle <br /> mass and definition.</p>
           </div>
         </div>
 
 
-        <div className="card bg-base-100 shadow-xl rounded py-4">
+        <div className="card bg-base-100 shadow-xl rounded py-4  border-b-2 border-rose-500  ">
           <figure>
             <img
               src={img5}
@@ -82,12 +86,13 @@ const Features = () => {
             />
           </figure>
           <div className="card-body text-center ">
-            <p>Mindful practices for holistic <br />well-being and relaxation.</p>
+          <h1 className="text-[#F72464] font-extrabold uppercase">Yoga Meditation</h1>
+            <p className="text-sm">Mindful practices for holistic <br />well-being and relaxation.</p>
           </div>
         </div>
 
 
-        <div className="card bg-base-100 shadow-xl rounded py-4">
+        <div className="card bg-base-100 shadow-xl rounded py-4 border-b-2 border-rose-500  ">
           <figure>
             <img
               src={img6}
@@ -96,7 +101,8 @@ const Features = () => {
             />
           </figure>
           <div className="card-body text-center ">
-            <p>Strength training regimens for <br />power and endurance.</p>
+          <h1 className="text-[#F72464] font-extrabold uppercase">Weight Lifting</h1>
+            <p className="text-sm">Strength training regimens for <br />power and endurance.</p>
           </div>
         </div>
 
