@@ -1,4 +1,4 @@
-
+import PropTypes from 'prop-types'; 
 
 const CustomTitle = ({subHeader,header }) => {
     return (
@@ -10,5 +10,10 @@ const CustomTitle = ({subHeader,header }) => {
         </div>
     );
 };
+
+CustomTitle.propTypes = {
+    subHeader: PropTypes.string,
+    header: PropTypes.string
+}
 
 export default CustomTitle;
