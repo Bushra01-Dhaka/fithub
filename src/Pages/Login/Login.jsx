@@ -11,10 +11,12 @@ const Login = () => {
 
     }
     return (
-        <div className="mb-6">
+        <div  className="my-10 mb-6 md:max-w-screen-xl mx-auto  rounded shadow-xl p-10 bg-black">
                <div className="flex flex-col md:flex-row justify-center items-center bg-[#F72464]">
           <div className="md:flex-1">
-            <img src={img} alt="login image" />
+            <img 
+            className="border-4 border-[#F72464] rounded"
+            src={img} alt="login image" />
           </div>
 
           <div className="md:flex-1 bg-[#F72464]">
@@ -63,13 +65,14 @@ const Login = () => {
             </form>
             <div className="text-center">
               <p className="text-white">
-                New here? <Link to="/signup">Create a New Account</Link>
+                New here? <Link to="/signUp">Create a New Account</Link>
               </p>
               <p className="text-black my-2">Or sign in with</p>
               <div className="flex my-6 justify-center items-center text-black text-3xl gap-4">
-                <CiFacebook></CiFacebook>
+                {/* <CiFacebook></CiFacebook>
                 <RiGoogleFill></RiGoogleFill>
-                <RiGithubFill></RiGithubFill>
+                <RiGithubFill></RiGithubFill> */}
+                <button className="btn btn-primary shadow-lg bg-black text-white border-0 hover:bg-slate-900 hover:text-[#F72464]"><RiGoogleFill className="text-[#F72464] text-xl"></RiGoogleFill> Sign in with Google</button>
               </div>
             </div>
           </div>
