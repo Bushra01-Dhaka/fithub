@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import About from "../../../Components/About/About";
 import Banner from "../../../Components/Banner/Banner";
 import FeaturedClasses from "../../../Components/FeaturedClass/FeaturedClasses";
@@ -10,6 +11,11 @@ import Trainers from "../../../Components/Trainer/Trainers";
 const Home = () => {
     return (
         <div>
+
+         <Helmet>
+            <title>FitHub | Home</title>
+         </Helmet>
+
            <Banner></Banner>
            <Features></Features>
            <About></About>

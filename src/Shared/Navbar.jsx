@@ -49,7 +49,7 @@ const Navbar = () => {
       </li>
 
       {user && (
-        <div className="flex justify-center items-center gap-1 p-2 bg-white text-white rounded-3xl shadow-lg mr-2 border-2 border-rose-500">
+        <div className="flex justify-center items-center gap-1 p-1 bg-white text-white rounded-3xl shadow-lg mr-2 border-2 border-rose-500">
           <small className="font-bold text-rose-500">{user?.displayName}</small>
           <div className="avatar online">
             <div className="w-6 rounded-full">

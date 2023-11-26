@@ -4,6 +4,7 @@ import img from "../../assets/loginOut/login.jpg"
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -79,6 +80,10 @@ const Login = () => {
 
     return (
         <div  className="my-10 mb-6 md:max-w-screen-xl mx-auto  rounded shadow-xl p-10 bg-black">
+            <Helmet>
+              <title>FitHub | Login</title>
+            </Helmet>
+
                <div className="flex flex-col md:flex-row justify-center items-center bg-[#F72464]">
           <div className="md:flex-1">
             <img 

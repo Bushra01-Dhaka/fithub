@@ -5,7 +5,7 @@ import img3 from "../../assets/trainers/profile3.jpg"
 
 const Trainers = () => {
   return (
-    <div className="py-20 bg-[#FCF5ED]">
+    <div className="py-20 bg-base-200">
         <CustomTitle
         subHeader="Our Trainers"
         header="Meet Our Trainers"
