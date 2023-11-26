@@ -1,15 +1,82 @@
-import { Link } from "react-router-dom";
-import { CiFacebook } from "react-icons/ci";
-import { RiGithubFill, RiGoogleFill } from "react-icons/ri";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { RiGoogleFill } from "react-icons/ri";
 import img from "../../assets/loginOut/login.jpg"
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
+import toast from "react-hot-toast";
 
 
 
 const Login = () => {
 
-    const handleLogin = () => {
+    const { signIn, googleSignIn } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    // const axiosPublic = useAxiosPublic();
+  
+    const from = location.state?.from?.pathname || "/";
 
-    }
+    const handleLogin = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password);
+    
+        signIn(email, password)
+          .then((result) => {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+            //navigate
+            navigate(from, { replace: true });
+            //toast
+            toast.success("Log in Successful.", {
+              position: "top-right",
+            });
+          })
+          .then((error) => {
+            console.error(error);
+             //toast 
+             toast.success("Provide valid email & password", {
+              position: "top-center",
+            });
+          });
+      };
+
+      const handleGoogleLogin = () => {
+        googleSignIn()
+        .then(result => {
+          const loggedUser = result.user;
+          console.log(loggedUser);
+    
+        //   const userInfo = {
+        //     name: result.user?.displayName,
+        //     email: result.user?.email
+        //   }
+        //   axiosPublic.post('/users', userInfo)
+        //   .then(res => {
+        //     console.log(res.data);
+        //   })
+    
+    
+          //toast 
+          toast.success("Log in Successful.", {
+            position: "top-right",
+          });
+          //navigate
+          navigate("/");
+    
+        })
+        .then(error => {
+          console.error(error);
+            //toast 
+            toast.error("Provide valid email & password", {
+              position: "top-center",
+            });
+        })
+      }
+
+
     return (
         <div  className="my-10 mb-6 md:max-w-screen-xl mx-auto  rounded shadow-xl p-10 bg-black">
                <div className="flex flex-col md:flex-row justify-center items-center bg-[#F72464]">
@@ -32,7 +99,7 @@ const Login = () => {
                   type="email"
                   name="email"
                   placeholder="email"
-                  className="input input-bordered border-0 shadow-lg"
+                  className="input input-bordered border-0 shadow-lg text-rose-500"
                   required
                 />
               </div>
@@ -44,7 +111,7 @@ const Login = () => {
                   type="password"
                   name="password"
                   placeholder="password"
-                  className="input input-bordered border-0 shadow-lg"
+                  className="input input-bordered border-0 shadow-lg text-rose-500"
                   required
                 />
                 <label className="label">
@@ -69,10 +136,7 @@ const Login = () => {
               </p>
               <p className="text-black my-2">Or sign in with</p>
               <div className="flex my-6 justify-center items-center text-black text-3xl gap-4">
-                {/* <CiFacebook></CiFacebook>
-                <RiGoogleFill></RiGoogleFill>
-                <RiGithubFill></RiGithubFill> */}
-                <button className="btn btn-primary shadow-lg bg-black text-white border-0 hover:bg-slate-900 hover:text-[#F72464]"><RiGoogleFill className="text-[#F72464] text-xl"></RiGoogleFill> Sign in with Google</button>
+                <button onClick={handleGoogleLogin} className="btn btn-primary shadow-lg bg-black text-white border-0 hover:bg-slate-900 hover:text-[#F72464]"><RiGoogleFill className="text-[#F72464] text-xl"></RiGoogleFill> Sign in with Google</button>
               </div>
             </div>
           </div>

@@ -1,13 +1,15 @@
-import { Link } from "react-router-dom";
-import { CiFacebook } from "react-icons/ci";
-import { RiGithubFill, RiGoogleFill } from "react-icons/ri";
+import { Link, useNavigate } from "react-router-dom";
+import { RiGoogleFill } from "react-icons/ri";
 import img from "../../assets/loginOut/logOut.jpg"
 import { useForm } from "react-hook-form";
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
+import toast from "react-hot-toast";
 
 
 
 const SignUp = () => {
-
+    const navigate = useNavigate();
     const {
         register,
         handleSubmit,
@@ -15,10 +17,79 @@ const SignUp = () => {
         formState: { errors },
       } = useForm();
 
-    // const handleSubmit = () => {
+      const { createUser, updateUserProfile, googleSignIn } = useContext(AuthContext);
 
-    // }
-    const onSubmit = (data) => console.log(data)
+      const onSubmit = (data) => {
+        console.log(data);
+        createUser(data.email, data.password).then((result) => {
+          const loggedUser = result.user;
+          console.log(loggedUser);
+    
+          updateUserProfile(data.name, data.photoURL)
+            .then(() => {
+              console.log("User profile data updated.");
+               
+
+                //toast
+                toast.success("Log in Successful.", {
+                  position: "top-right",
+                });
+                //navigate
+                navigate("/");
+              
+            
+            
+    
+            //   //create user entry ion database
+            //   const userInfo = {
+            //     name: data.name,
+            //     email: data.email,
+            //   };
+            //   axiosPublic.post("/users", userInfo).then((res) => {
+            //     if (res.data.insertedId) {
+            //       console.log("new user added")
+            //       reset();
+            //       //toast
+            //       toast.success("Log in Successful.", {
+            //         position: "top-right",
+            //       });
+            //       //navigate
+            //       navigate("/");
+            //     }
+            //   });
+            })
+            .catch((error) => console.log(error));
+        });
+      };
+
+      const handleGoogleLogin = () => {
+        googleSignIn()
+        .then(result => {
+          const loggedUser = result.user;
+          console.log(loggedUser);
+
+
+        //   const userInfo = {
+        //     name: result.user?.displayName,
+        //     email: result.user?.email
+        //   }
+        //   axiosPublic.post('/users', userInfo)
+        //   .then(res => {
+        //     console.log(res.data);
+        //   })
+    
+          //toast 
+          toast.success("Log in Successful.", {
+            position: "top-right",
+          });
+          //navigate
+          navigate("/");
+    
+        })
+        .then(error => console.error(error))
+      }
+
+   
     return (
         <div
         // style={{ backgroundImage: `url(${img})` }}
@@ -45,7 +116,7 @@ const SignUp = () => {
                   {...register("name")}
                   name="name"
                   placeholder="user name"
-                  className="input input-bordered border-0 shadow-lg"
+                  className="input input-bordered border-0 shadow-lg text-rose-500"
                   required
                 />
                 {errors.name && <span>User name is required</span>}
@@ -58,7 +129,7 @@ const SignUp = () => {
                   type="text"
                   {...register("photoURL")}
                   placeholder="photo url"
-                  className="input input-bordered border-0 shadow-lg"
+                  className="input input-bordered border-0 shadow-lg text-rose-500"
                   required
                 />
                 {errors.photoURL && <span>Photo URL is required</span>}
@@ -72,7 +143,7 @@ const SignUp = () => {
                   {...register("email", { required: true })}
                   name="email"
                   placeholder="email"
-                  className="input input-bordered border-0 shadow-lg"
+                  className="input input-bordered border-0 shadow-lg text-rose-500"
                   required
                 />
                 {errors.email?.type === "required" && (
@@ -93,7 +164,7 @@ const SignUp = () => {
                   })}
                   name="password"
                   placeholder="password"
-                  className="input input-bordered border-0 shadow-lg"
+                  className="input input-bordered border-0 shadow-lg text-rose-500"
                   required
                 />
                 {errors.password?.type === "required" && (
@@ -131,9 +202,11 @@ const SignUp = () => {
               </p>
               <p className="text-black my-2">Or sign up with</p>
               <div className="flex my-6 justify-center items-center text-black text-3xl gap-4">
-                <CiFacebook></CiFacebook>
+                {/* <CiFacebook></CiFacebook>
                 <RiGoogleFill></RiGoogleFill>
-                <RiGithubFill></RiGithubFill>
+                <RiGithubFill></RiGithubFill> */}
+
+                <button onClick={handleGoogleLogin} className="btn btn-primary shadow-lg bg-[#F72464] text-white border-0 hover:bg-slate-900 hover:text-[#F72464]"><RiGoogleFill className=" text-xl"></RiGoogleFill>Sign Up with Google</button>
               </div>
             </div>
           </div>

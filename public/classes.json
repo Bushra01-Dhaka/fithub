@@ -1,0 +1,38 @@
+[
+    {
+        "class_id": 1,
+        "class_title": "High Intensity Interval Training (HIIT)",
+        "short_description": "Experience a full-body workout with intense intervals for maximum calorie burn.",
+        "class_image": "hiit_image.jpg"
+      },
+      {
+        "class_id": 2,
+        "class_title": "Yoga Flow",
+        "short_description": "Improve flexibility, balance, and mental focus with a dynamic yoga flow.",
+        "class_image": "yoga_flow_image.jpg"
+      },
+      {
+        "class_id": 3,
+        "class_title": "Strength Training Circuit",
+        "short_description": "Build muscle and strength through a series of challenging circuit exercises.",
+        "class_image": "strength_training_image.jpg"
+      },
+      {
+        "class_id": 4,
+        "class_title": "Spin Cycle",
+        "short_description": "Pedal your way to fitness with energetic music and motivating instructors.",
+        "class_image": "spin_cycle_image.jpg"
+      },
+      {
+        "class_id": 5,
+        "class_title": "Pilates Core Conditioning",
+        "short_description": "Strengthen your core and improve posture through controlled Pilates movements.",
+        "class_image": "pilates_image.jpg"
+      },
+      {
+        "class_id": 6,
+        "class_title": "Boxing Bootcamp",
+        "short_description": "Combine boxing drills and cardio for a high-energy, empowering workout.",
+        "class_image": "boxing_bootcamp_image.jpg"
+      }
+]

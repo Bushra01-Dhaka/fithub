@@ -8,7 +8,7 @@ const Banner = () => {
   return (
     <div 
     style={{backgroundImage: `url(${img2})`}} 
-     className="flex flex-col md:flex-row items-center justify-center bg-cover bg-center bg-opacity-80 h-screen">
+     className="flex flex-col md:flex-row items-center justify-center bg-cover bg-center bg-opacity-80">
       {/* description */}
       <div className="md:flex-1 p-4 mt-8 ">
         <h1 className="text-4xl lg:text-6xl  font-bold max-w-lg mt-14 lg:mt-0 text-white"><span className="text-[#F72464]">FitHub</span> Fitness:</h1>
