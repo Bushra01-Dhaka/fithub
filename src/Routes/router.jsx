@@ -10,6 +10,7 @@ import Gallery from "../Pages/Gallery/Gallery";
 import BeATrainer from "../Pages/BeATrainer/BeATrainer";
 import PrivateRoutes from "./PrivateRoutes";
 import TrainerPage from "../Pages/Trainer/TrainerPage";
+import TrainerDetails from "../Pages/TrainerDetails/TrainerDetails";
 
 const router = createBrowserRouter([
     {
@@ -47,6 +48,11 @@ const router = createBrowserRouter([
           path: "/trainer",
           element: <TrainerPage></TrainerPage>,
           loader:() => fetch(`http://localhost:5000/trainers`)
+        },
+        {
+           path: "/trainerDetails/:id",
+           element:<TrainerDetails></TrainerDetails>,
+           loader: ({params}) => fetch(`http://localhost:5000/trainers/${params.id}`)
         },
         {
           path:"/beTrainer",

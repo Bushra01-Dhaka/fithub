@@ -56,7 +56,7 @@ const TrainerCard = ({card}) => {
              
 
               <div>
-                <Link to={`/trainerDeails/${_id}`}><button className='btn bg-black text-white rounded-md'>Know More</button></Link>
+                <Link to={`/trainerDetails/${_id}`}><button className='btn bg-black text-white rounded-md'>Know More</button></Link>
               </div>
 
             </div>
