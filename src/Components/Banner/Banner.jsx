@@ -4,9 +4,15 @@ import img2 from "../../assets/Banner/banner2.jpg"
 import img3 from "../../assets/Banner/banner3.jpg"
 import img4 from "../../assets/Banner/banner4.jpg"
 import Marquee from "react-fast-marquee";
+
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+AOS.init();
+
+
 const Banner = () => {
   return (
-    <div 
+    <div data-aos="fade"
     style={{backgroundImage: `url(${img2})`}} 
      className="flex flex-col md:flex-row items-center justify-center bg-cover bg-center bg-opacity-80">
       {/* description */}

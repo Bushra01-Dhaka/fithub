@@ -6,6 +6,10 @@ import { FaArrowCircleDown } from 'react-icons/fa';
 import useClasses from "../../Hooks/useClasses";
 import FeaturedClass from "../../Components/FeaturedClass/FeaturedClass";
 import { Link } from "react-router-dom";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+AOS.init();
+
 
 const Classes = () => {
 
@@ -22,7 +26,7 @@ const Classes = () => {
         className="hero min-h-screen bg-fixed bg-black bg-cover bg-center bg-opacity-80 py-8 text-white"
       >
        
-         <div className="bg-base-200 bg-opacity-40 p-8 rounded">
+         <div data-aos="zoom-in" className="bg-base-200 bg-opacity-40 p-8 rounded">
          <div className="w-[120px] h-[120px] rounded-[50%] bg-[#F72464] mx-auto">
             <div className="mx-auto items-center">
               <img

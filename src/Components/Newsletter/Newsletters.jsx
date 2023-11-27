@@ -1,5 +1,11 @@
 import img_logo from "../../assets/icons/mail.svg";
 import img from "../../assets/newsletter/ropeman.jpg";
+
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+AOS.init();
+
+
 const Newsletters = () => {
   return (
     <div
@@ -19,7 +25,7 @@ const Newsletters = () => {
         </div>
       </div>
 
-      <div className="my-4 md:max-w-lg mx-auto bg-base-100 bg-opacity-40 text-black p-12 rounded-md shadow-lg ">
+      <div data-aos = "zoom-in" className="my-4 md:max-w-lg mx-auto bg-base-100 bg-opacity-40 text-black p-12 rounded-md shadow-lg ">
         <h1 className="text-3xl md:text-4xl font-bold text-center">
           Subscribe to our <span className="text-[#F72464]">Newsletter</span>
         </h1>

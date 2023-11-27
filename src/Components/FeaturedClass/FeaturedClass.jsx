@@ -1,6 +1,9 @@
+import { Link } from "react-router-dom";
+
 const FeaturedClass = ({ item }) => {
-  const { class_title, class_image, short_description } = item;
+  const { _id, class_title, class_image, short_description } = item;
   return (
+  <Link to={`/classDetails/${_id}`}>
     <div className="card shadow-xl border-b-2 border-red-500 bg-[#F72464]">
       <figure>
         <img
@@ -14,6 +17,7 @@ const FeaturedClass = ({ item }) => {
         <p className="py-2">{short_description}</p>
       </div>
     </div>
+    </Link>
   );
 };
 
