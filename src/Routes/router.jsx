@@ -9,6 +9,7 @@ import ClassDetails from "../Pages/ClassDetails/ClassDetails";
 import Gallery from "../Pages/Gallery/Gallery";
 import BeATrainer from "../Pages/BeATrainer/BeATrainer";
 import PrivateRoutes from "./PrivateRoutes";
+import TrainerPage from "../Pages/Trainer/TrainerPage";
 
 const router = createBrowserRouter([
     {
@@ -41,6 +42,11 @@ const router = createBrowserRouter([
           path: "/gallery",
           element:<Gallery></Gallery>,
           loader: () => fetch(`http://localhost:5000/gallery`)
+        },
+        {
+          path: "/trainer",
+          element: <TrainerPage></TrainerPage>,
+          loader:() => fetch(`http://localhost:5000/trainers`)
         },
         {
           path:"/beTrainer",

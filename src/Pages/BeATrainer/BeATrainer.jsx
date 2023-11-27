@@ -7,6 +7,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 AOS.init();
 
 const BeATrainer = () => {
@@ -55,6 +56,9 @@ const BeATrainer = () => {
 
   return (
     <div>
+     <Helmet>
+              <title>FitHub | BeATrainer</title>
+            </Helmet>
       <div
         style={{ backgroundImage: `url(${img})` }}
         className="hero min-h-screen bg-fixed bg-black bg-cover bg-center bg-opacity-80 py-8 text-white"

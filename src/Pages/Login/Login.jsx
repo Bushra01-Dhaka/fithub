@@ -37,10 +37,6 @@ const Login = () => {
           })
           .then((error) => {
             console.error(error);
-             //toast 
-             toast.success("Provide valid email & password", {
-              position: "top-center",
-            });
           });
       };
 
@@ -70,10 +66,7 @@ const Login = () => {
         })
         .then(error => {
           console.error(error);
-            //toast 
-            toast.error("Provide valid email & password", {
-              position: "top-center",
-            });
+           
         })
       }
 
