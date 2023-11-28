@@ -18,6 +18,7 @@ import AddBlogs from "../Pages/DashboardPage/AddBlogs";
 import ActivityLog from "../Pages/DashboardPage/ActivityLog/ActivityLog";
 import ProfileSetting from "../Pages/DashboardPage/ProfileSetting/ProfileSetting";
 import RecommendedClasses from "../Pages/RecommendedClasses/RecommendedClasses";
+import AllSubscribers from "../Pages/DashboardPage/AllSubscriber/AllSubscribers";
 
 const router = createBrowserRouter([
     {
@@ -85,10 +86,6 @@ const router = createBrowserRouter([
       element: <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
       children: [
         {
-          path:"blogs",
-          element:<AddBlogs></AddBlogs>
-        },
-        {
           path:"activityLog",
           element:<ActivityLog></ActivityLog>
         },
@@ -99,7 +96,20 @@ const router = createBrowserRouter([
         {
           path:"recommendedClasses",
           element: <RecommendedClasses></RecommendedClasses>
+        },
+
+        // admin routes
+        {
+          path:"blogs",
+          element:<AddBlogs></AddBlogs>
+        },
+        {
+          path: "allSubscriber",
+          element:<AllSubscribers></AllSubscribers>,
+          
         }
+
+
       ]
     }
 
