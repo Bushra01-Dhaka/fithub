@@ -38,7 +38,8 @@ const BeATrainer = () => {
         skills,
         weeklyHour,
         dailyHour,
-        experience
+        experience,
+        // status: "user"
      }
      console.log(trainerData);
      axiosSecure.post('/trainers', trainerData)

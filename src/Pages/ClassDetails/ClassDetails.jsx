@@ -47,7 +47,7 @@ const ClassDetails = () => {
             <h1 className="text-3xl font-bold text-[#F72464] mt-4">{class_title}</h1>
              <p className="py-4">{short_description}</p>
 
-             <Link><button className="btn btn-block my-4 border-0 bg-[#F72464] rounded text-white hover:bg-rose-500">Join Now</button></Link>
+             <Link to='/trainer'><button className="btn btn-block my-4 border-0 bg-[#F72464] rounded text-white hover:bg-rose-500">Join Now</button></Link>
          </div>
 
       </div>

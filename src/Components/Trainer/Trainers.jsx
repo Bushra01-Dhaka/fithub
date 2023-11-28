@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import CustomTitle from "../../Hooks/CustomTitle";
 import img1 from "../../assets/trainers/profile1.jpg"
 import img2 from "../../assets/trainers/profile2.jpg"
@@ -26,7 +27,7 @@ const Trainers = () => {
             />
           </figure>
           <div className="card-body mx-auto text-center">
-            <h2 className="text-2xl font-bold">Alex Robert</h2>
+            <h2 className="text-2xl font-bold">Harry Potter</h2>
             <p className="text-[#F72464] font-bold">Trainer</p>
           </div>
         </div>
@@ -40,7 +41,7 @@ const Trainers = () => {
             />
           </figure>
           <div className="card-body mx-auto text-center">
-            <h2 className="text-2xl font-bold">Ben Stoke</h2>
+            <h2 className="text-2xl font-bold">Allen Roger</h2>
             <p className="text-[#F72464] font-bold">Trainer</p>
           </div>
         </div>
@@ -55,14 +56,16 @@ const Trainers = () => {
             />
           </figure>
           <div className="card-body mx-auto text-center">
-            <h2 className="text-2xl font-bold">Ken Williamson</h2>
+            <h2 className="text-2xl font-bold">Faz Ibrahim</h2>
             <p className="text-[#F72464] font-bold">Trainer</p>
           </div>
         </div>
 
 
       </div>
-
+      <div className="text-center">
+      <Link to='/trainer'><button className="btn text-center mx-auto my-4 border-0 bg-[#F72464] rounded text-white hover:bg-rose-500">Explore Best Trainer</button></Link>
+      </div>
 
     </div>
   );
