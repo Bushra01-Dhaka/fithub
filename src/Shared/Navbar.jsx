@@ -45,7 +45,7 @@ const Navbar = () => {
         <NavLink to="/dashboard">Dashboard</NavLink>
       </li>
       <li>
-        <NavLink to="/community">Community</NavLink>
+        <NavLink to="/community">Community/Forum</NavLink>
       </li>
 
       {user && (

@@ -12,6 +12,7 @@ import PrivateRoutes from "./PrivateRoutes";
 import TrainerPage from "../Pages/Trainer/TrainerPage";
 import TrainerDetails from "../Pages/TrainerDetails/TrainerDetails";
 import BookTrainer from "../Pages/BookTrainer/BookTrainer";
+import Blogs from "../Pages/Blogs/Blogs";
 
 const router = createBrowserRouter([
     {
@@ -64,6 +65,12 @@ const router = createBrowserRouter([
           element: <PrivateRoutes><BookTrainer></BookTrainer></PrivateRoutes>,
           loader: ({params}) => fetch(`http://localhost:5000/trainers/${params.id}`)
          
+        },
+
+        {
+          path:"/community",
+          element:<Blogs></Blogs>,
+          loader: () => fetch(`http://localhost:5000/blogs`)
         }
       ]
     },
