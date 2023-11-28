@@ -6,9 +6,11 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import toast from "react-hot-toast";
 import { Helmet } from "react-helmet-async";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const SignUp = () => {
   const navigate = useNavigate();
+  const axiosPublic = useAxiosPublic();
   const {
     register,
     handleSubmit,
@@ -30,29 +32,29 @@ const SignUp = () => {
           console.log("User profile data updated.");
 
           //toast
-          toast.success("Log in Successful.", {
-            position: "top-right",
-          });
-          //navigate
-          navigate("/");
+          // toast.success("Log in Successful.", {
+          //   position: "top-right",
+          // });
+          
+          // navigate("/");
 
-          //   //create user entry ion database
-          //   const userInfo = {
-          //     name: data.name,
-          //     email: data.email,
-          //   };
-          //   axiosPublic.post("/users", userInfo).then((res) => {
-          //     if (res.data.insertedId) {
-          //       console.log("new user added")
-          //       reset();
-          //       //toast
-          //       toast.success("Log in Successful.", {
-          //         position: "top-right",
-          //       });
-          //       //navigate
-          //       navigate("/");
-          //     }
-          //   });
+            //create user entry ion database
+            const userInfo = {
+              name: data.name,
+              email: data.email,
+            };
+            axiosPublic.post("/users", userInfo).then((res) => {
+              if (res.data.insertedId) {
+                console.log("new user added")
+                reset();
+                //toast
+                toast.success("Log in Successful.", {
+                  position: "top-right",
+                });
+                //navigate
+                navigate("/");
+              }
+            });
         })
         .catch((error) => console.log(error));
     });
@@ -64,21 +66,25 @@ const SignUp = () => {
         const loggedUser = result.user;
         console.log(loggedUser);
 
-        //   const userInfo = {
-        //     name: result.user?.displayName,
-        //     email: result.user?.email
-        //   }
-        //   axiosPublic.post('/users', userInfo)
-        //   .then(res => {
-        //     console.log(res.data);
-        //   })
+          const userInfo = {
+            name: result.user?.displayName,
+            email: result.user?.email
+          }
+          axiosPublic.post('/users', userInfo)
+          .then(res => {
+            console.log(res.data);
 
-        //toast
+            //toast
         toast.success("Log in Successful.", {
           position: "top-right",
         });
         //navigate
         navigate("/");
+
+
+       })
+
+        
       })
       .then((error) => console.error(error));
   };

@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import CustomTitle from "../../../Hooks/CustomTitle";
 import usePackage from "../../../Hooks/usePackage";
 import { Helmet } from "react-helmet-async";
@@ -6,16 +6,16 @@ import { Helmet } from "react-helmet-async";
 const ActivityLog = () => {
   const [packageData] = usePackage();
   console.log("package", packageData);
-  const [slot, setSlot] = useState(0);
+  // const [slot, setSlot] = useState(0);
 
   
 
-  const selectedSlot = packageData[0].selected_slot;
-  const slotno = parseInt(selectedSlot);
-  console.log(slotno);
+  // const selectedSlot = packageData[0].selected_slot;
+  // const slotno = parseInt(selectedSlot);
+  // console.log(slotno);
 
-  const slotTime = ["7-8am", "9-10am", "11-12am", "3-4pm", "7-8pm", "9-10pm"];
-
+  // const slotTime = ["7-8am", "9-10am", "11-12am", "3-4pm", "7-8pm", "9-10pm"];
+  // setSlot(slotTime[slotno]);
   return (
     <div>
       
@@ -34,7 +34,7 @@ const ActivityLog = () => {
             <div className="border-2 border-rose-500 rounded-md p-12">
               <h1 className="text-rose-500 font-bold text-3xl">My Trainer</h1>
               <img
-                className="w-[200px] h-[200px] rounded-md my-2"
+                className="w-[200px] h-[200px] rounded-md my-2 object-cover"
                 src={data.trainer_photo}
                 alt=""
               />
@@ -49,22 +49,23 @@ const ActivityLog = () => {
                 <span className="text-rose-500 font-bold">
                   Selected Slot Time:{" "}
                 </span>
-                {slotTime[slotno - 1]}
+                {/* {slotTime[slotno - 1]} */}
+                {data.selected_slot}pm
               </p>
             </div>
 
             {/* middle */}
             <div className="bg-black text-white rounded-md p-12 text-center">
               <h1 className="text-rose-500 text-3xl font-bold">{`Today's Class`}</h1>
-              <p className="text-xl text-white my-4">{slotTime[slotno - 1]}</p>
+              {/* <p className="text-xl text-white my-4">{slotTime[slotno - 1]}</p> */}
+              <p className="text-xl text-white my-4">{data.selected_slot}pm</p>
             </div>
 
             {/* right */}
             <div className="text-center p-12 my-auto bg-rose-500 text-white rounded-md">
               <h1 className="text-black text-3xl font-extrabold">{`My Package`}</h1>
               <div className="p-4">
-                <p>
-                  <span className=" font-bold ">Package: </span>
+                <p className="font-bold text-lg">
                   {data.packageName}
                 </p>
                 <p>

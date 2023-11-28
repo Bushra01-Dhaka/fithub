@@ -1,8 +1,12 @@
-import { FaAd, FaBookOpen, FaCalendar, FaEdit, FaHome, FaImage, FaImages, FaImdb, FaList, FaUser, FaUsers } from "react-icons/fa";
+import {  FaAd, FaBookOpen, FaDollarSign, FaEdit, FaHome,  FaImages,  FaList,  FaThumbsUp,  FaUsers } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 import logo from "../assets/logo/fithub.svg"
 
 const Dashboard = () => {
+
+  //TODO: get admin value from database
+  const isAdmin = true;
+
   return (
     <div className="flex">
       {/* dashboard side bar */}
@@ -12,7 +16,95 @@ const Dashboard = () => {
         </div>
 
         <ul className="menu space-y-4 mt-8">
+          {
+             isAdmin ? <>
+               
+               <li>
+            <NavLink
+              to="/dashboard/allSubscriber"
+              className={({ isActive, isPending }) =>
+                isPending
+                  ? "pending"
+                  : isActive
+                  ? "bg-white text-rose-500 font-bold hover:bg-black"
+                  : ""
+              }
+            >
+              {" "}
+               <FaThumbsUp></FaThumbsUp> All Subscribers
+            </NavLink>
+          </li>
+
         <li>
+            <NavLink
+              to="/dashboard/allTrainer"
+              className={({ isActive, isPending }) =>
+                isPending
+                  ? "pending"
+                  : isActive
+                  ? "bg-white text-rose-500 font-bold hover:bg-black"
+                  : ""
+              }
+            >
+              {" "}
+               <FaUsers></FaUsers> All Trainer
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink
+              to="/dashboard/recommendedClasses"
+              className={({ isActive, isPending }) =>
+                isPending
+                  ? "pending"
+                  : isActive
+                  ? "bg-white text-rose-500 font-bold hover:bg-black"
+                  : ""
+              }
+            >
+              {" "}
+               <FaAd></FaAd> Applied Trainer
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink
+              to="/dashboard/blogs"
+              className={({ isActive, isPending }) =>
+                isPending
+                  ? "pending"
+                  : isActive
+                  ? "bg-white text-rose-500 font-bold hover:bg-black"
+                  : ""
+              }
+            >
+              {" "}
+              <FaEdit></FaEdit> Add New Forum
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink
+              to="/dashboard/balance"
+              className={({ isActive, isPending }) =>
+                isPending
+                  ? "pending"
+                  : isActive
+                  ? "bg-white text-rose-500 font-bold hover:bg-black"
+                  : ""
+              }
+            >
+              {" "}
+             <FaDollarSign></FaDollarSign> Balance
+            </NavLink>
+          </li>
+
+
+             </>
+             :
+              // normal user
+             <>
+                <li>
             <NavLink
               to="/dashboard/activityLog"
               className={({ isActive, isPending }) =>
@@ -76,8 +168,12 @@ const Dashboard = () => {
             </NavLink>
           </li>
 
+             </>
+
+          }
 
 
+        {/* SHARED nav links */}
 
           <div className="divider"></div>
           <li>

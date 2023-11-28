@@ -23,7 +23,7 @@ const TrainerDetails = () => {
   const slotButtons = Array.from({ length: totalSlots }, (_, index) => (
     <Link key={index + 1} to={`/bookTrainer/${_id}?slot=${index+1}`}>
      <button className='btn btn-xm bg-[#F72464] text-white rounded-md hover:bg-black'>
-      {`Slot ${index + 1}`}
+      {`Slot ${index + 1}`} 
     </button>
     </Link>
   ));

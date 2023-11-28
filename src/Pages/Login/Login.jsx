@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import toast from "react-hot-toast";
 import { Helmet } from "react-helmet-async";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 
 
@@ -13,7 +14,7 @@ const Login = () => {
     const { signIn, googleSignIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
-    // const axiosPublic = useAxiosPublic();
+    const axiosPublic = useAxiosPublic();
   
     const from = location.state?.from?.pathname || "/";
 
@@ -35,8 +36,11 @@ const Login = () => {
               position: "top-right",
             });
           })
-          .then((error) => {
+          .catch((error) => {
             console.error(error);
+            toast.error("Please provide valid email & password.", {
+              position: "top-right",
+            });
           });
       };
 
@@ -46,25 +50,28 @@ const Login = () => {
           const loggedUser = result.user;
           console.log(loggedUser);
     
-        //   const userInfo = {
-        //     name: result.user?.displayName,
-        //     email: result.user?.email
-        //   }
-        //   axiosPublic.post('/users', userInfo)
-        //   .then(res => {
-        //     console.log(res.data);
-        //   })
-    
-    
-          //toast 
+          const userInfo = {
+            name: result.user?.displayName,
+            email: result.user?.email
+          }
+          axiosPublic.post('/users', userInfo)
+          .then(res => {
+            console.log(res.data);
+
+             //toast 
           toast.success("Log in Successful.", {
             position: "top-right",
           });
           //navigate
           navigate("/");
+
+          })
+    
+    
+         
     
         })
-        .then(error => {
+        .catch(error => {
           console.error(error);
            
         })
