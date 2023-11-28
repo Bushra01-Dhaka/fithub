@@ -11,10 +11,13 @@ import {
 } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 import logo from "../assets/logo/fithub.svg";
+import useAdmin from "../Hooks/useAdmin";
 
 const Dashboard = () => {
   //TODO: get admin value from database
-  const isAdmin = true;
+  // const isAdmin = true;
+
+  const [isAdmin] = useAdmin();
 
   return (
     <div className="flex">

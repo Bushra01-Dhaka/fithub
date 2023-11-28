@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import CustomTitle from "../../../Hooks/CustomTitle";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
-import { FaUsers } from "react-icons/fa";
+
 
 const AllSubscribers = () => {
   const axiosSecure = useAxiosSecure();
@@ -37,7 +37,7 @@ const AllSubscribers = () => {
                 <th>#</th>
                 <th>Subscribers Name</th>
                 <th>Subscribers Email</th>
-                <th>Role</th>
+               
               </tr>
             </thead>
             <tbody>
@@ -46,10 +46,7 @@ const AllSubscribers = () => {
                     <th>{index + 1}</th>
                     <td>{item.subscriber_name}</td>
                     <td>{item.subscriber_email}</td>
-                    <td>
-                        <button
-                         className="btn btn-ghost hover:bg-black"><FaUsers className="text-2xl text-rose-500"></FaUsers></button>
-                    </td>
+                   
                     
                   </tr>)
                 }
