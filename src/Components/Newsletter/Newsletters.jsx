@@ -1,12 +1,25 @@
+import { useContext } from "react";
 import img_logo from "../../assets/icons/mail.svg";
 import img from "../../assets/newsletter/ropeman.jpg";
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { AuthContext } from "../../Provider/AuthProvider";
 AOS.init();
 
 
 const Newsletters = () => {
+const {user} = useContext(AuthContext);
+
+  const handleSubscribe = event =>{
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const name = form.name.value;
+
+    console.log(email,name);
+  }
+
   return (
     <div
       style={{ backgroundImage: `url(${img})`, backgroundBlendMode: "black" }}
@@ -29,7 +42,7 @@ const Newsletters = () => {
         <h1 className="text-3xl md:text-4xl font-bold text-center">
           Subscribe to our <span className="text-[#F72464]">Newsletter</span>
         </h1>
-        <form>
+        <form onSubmit={handleSubscribe}>
           <div className="form-control">
             <label className="label">
               <span className="label-text text-[#F72464] font-bold">Name</span>
@@ -49,7 +62,7 @@ const Newsletters = () => {
             <input
               type="email"
               name="email"
-              placeholder="Email"
+              placeholder={`${user?.email}`}
               className="input input-bordered"
               required
             />

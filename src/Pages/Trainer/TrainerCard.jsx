@@ -21,18 +21,7 @@ const TrainerCard = ({card}) => {
      const totalSlots = parseFloat(dailyHour);
      console.log(totalSlots);
 
-     // Generate an array of button elements based on totalSlots
-  const slotButtons = Array.from({ length: totalSlots }, (_, index) => (
-    <button className='btn btn-xm bg-[#F72464] text-white rounded-md hover:bg-black' key={index + 1} onClick={() => handleSlotClick(index + 1)}>
-      {`Slot ${index + 1}`}
-    </button>
-  ));
-
-  // Handle slot button click event
-  const handleSlotClick = (slotNumber) => {
-    // Add your logic here for handling the slot button click
-    console.log(`Slot ${slotNumber} clicked`);
-  };
+   
 
 
     return (
@@ -56,17 +45,18 @@ const TrainerCard = ({card}) => {
              
 
               <div>
-                <Link to={`/trainerDetails/${_id}`}><button className='btn bg-black text-white rounded-md'>Know More</button></Link>
+                <Link to={`/trainerDetails/${_id}`}><button className='btn bg-black text-white rounded-md hover:bg-rose-500'>Know More</button></Link>
               </div>
 
             </div>
 
-            <div className='text-center'>
-                {/* Display the generated slot buttons */}
+            {/* <div className='text-center'>
                 <p className='text-black font-bold'>Available Slots</p>
               {slotButtons}
 
-              </div>
+              </div> */}
+
+
           </div> 
     );
 };

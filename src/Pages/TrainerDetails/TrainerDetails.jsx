@@ -1,5 +1,5 @@
 import { FaBullseye, FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 
 const TrainerDetails = () => {
@@ -21,15 +21,28 @@ const TrainerDetails = () => {
 
      // Generate an array of button elements based on totalSlots
   const slotButtons = Array.from({ length: totalSlots }, (_, index) => (
-    <button className='btn btn-xm bg-[#F72464] text-white rounded-md hover:bg-black' key={index + 1} onClick={() => handleSlotClick(index + 1)}>
+    <Link key={index + 1} to={`/bookTrainer/${_id}?slot=${index+1}`}>
+     <button className='btn btn-xm bg-[#F72464] text-white rounded-md hover:bg-black'>
       {`Slot ${index + 1}`}
     </button>
+    </Link>
   ));
 
   // Handle slot button click event
   const handleSlotClick = (slotNumber) => {
     // Add your logic here for handling the slot button click
     console.log(`Slot ${slotNumber} clicked`);
+    console.log("number",slotNumber);
+    const bookClassData = {
+        trainer_id: _id,
+        trainer_name,
+        trainer_email,
+        trainer_dailyHour:  dailyHour,
+        trainer_weeklyHour:  weeklyHour,
+        slot: slotNumber,
+    }
+    console.log(bookClassData);
+     
   };
 
 
@@ -75,6 +88,14 @@ const TrainerDetails = () => {
                  </div>
 
 
+            </div>
+
+            <div className="bg-black text-white py-8">
+              <div className="md:max-w-md mx-auto p-12"> 
+              <h1 className="text-4xl text-center font-bold">Wanna to join with Fithub team?</h1>
+                <p className="text-lg text-center py-4">As a trainer</p>
+                <Link to='/beTrainer' ><button className="text-center btn btn-block bg-[#F72464] text-white rounded border-0 hover:bg-rose-500">Be a Trainer</button></Link>
+              </div>
             </div>
 
 
