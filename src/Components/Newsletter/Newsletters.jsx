@@ -5,19 +5,37 @@ import img from "../../assets/newsletter/ropeman.jpg";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { AuthContext } from "../../Provider/AuthProvider";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import toast from "react-hot-toast";
 AOS.init();
 
 
 const Newsletters = () => {
 const {user} = useContext(AuthContext);
+const axiosSecure = useAxiosSecure();
 
   const handleSubscribe = event =>{
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const name = form.name.value;
+    const subscriberInfo = {
+      subscriber_email: email,
+      subscriber_name: name,
+    }
 
     console.log(email,name);
+    axiosSecure.post('/newsletter', subscriberInfo)
+     .then(res => {
+       console.log(res.data);
+       if(res.data.insertedId)
+       {
+        
+        toast.success(`Subscribed Successfully.`, {
+           position: "top-center",
+         });
+       }
+     })
   }
 
   return (
