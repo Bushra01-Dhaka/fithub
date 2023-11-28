@@ -13,6 +13,11 @@ import TrainerPage from "../Pages/Trainer/TrainerPage";
 import TrainerDetails from "../Pages/TrainerDetails/TrainerDetails";
 import BookTrainer from "../Pages/BookTrainer/BookTrainer";
 import Blogs from "../Pages/Blogs/Blogs";
+import Dashboard from "../Layout/Dashboard";
+import AddBlogs from "../Pages/DashboardPage/AddBlogs";
+import ActivityLog from "../Pages/DashboardPage/ActivityLog/ActivityLog";
+import ProfileSetting from "../Pages/DashboardPage/ProfileSetting/ProfileSetting";
+import RecommendedClasses from "../Pages/RecommendedClasses/RecommendedClasses";
 
 const router = createBrowserRouter([
     {
@@ -74,6 +79,30 @@ const router = createBrowserRouter([
         }
       ]
     },
+
+    {
+      path: 'dashboard',
+      element:<Dashboard></Dashboard>,
+      children: [
+        {
+          path:"blogs",
+          element:<AddBlogs></AddBlogs>
+        },
+        {
+          path:"activityLog",
+          element:<ActivityLog></ActivityLog>
+        },
+        {
+          path:"userProfile",
+          element:<ProfileSetting></ProfileSetting>
+        },
+        {
+          path:"recommendedClasses",
+          element: <RecommendedClasses></RecommendedClasses>
+        }
+      ]
+    }
+
   ]);
 
 export default router;

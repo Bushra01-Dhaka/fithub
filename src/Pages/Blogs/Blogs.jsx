@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import Blog from "./Blog";
+import { Helmet } from "react-helmet-async";
 
 const Blogs = () => {
   const blogs = useLoaderData();
@@ -7,6 +8,9 @@ const Blogs = () => {
 
   return (
     <div>
+       <Helmet>
+              <title>FitHub | Community</title>
+            </Helmet>
       <div
         className="hero min-h-[80vh]"
         style={{
