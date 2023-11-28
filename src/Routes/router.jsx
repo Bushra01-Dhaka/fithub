@@ -19,6 +19,7 @@ import ActivityLog from "../Pages/DashboardPage/ActivityLog/ActivityLog";
 import ProfileSetting from "../Pages/DashboardPage/ProfileSetting/ProfileSetting";
 import RecommendedClasses from "../Pages/RecommendedClasses/RecommendedClasses";
 import AllSubscribers from "../Pages/DashboardPage/AllSubscriber/AllSubscribers";
+import AllUsers from "../Pages/DashboardPage/AllUsers/AllUsers";
 
 const router = createBrowserRouter([
     {
@@ -104,9 +105,12 @@ const router = createBrowserRouter([
           element:<AddBlogs></AddBlogs>
         },
         {
+          path: "allUsers",
+          element:<AllUsers></AllUsers>
+        },
+        {
           path: "allSubscriber",
           element:<AllSubscribers></AllSubscribers>,
-          
         }
 
 

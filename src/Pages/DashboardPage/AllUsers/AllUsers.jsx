@@ -1,30 +1,47 @@
 import { Helmet } from "react-helmet-async";
 import CustomTitle from "../../../Hooks/CustomTitle";
-import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
 import { FaUsers } from "react-icons/fa";
+import toast from "react-hot-toast";
 
-const AllSubscribers = () => {
+const AllUsers = () => {
   const axiosSecure = useAxiosSecure();
 
-  const { data: subscribers = [] } = useQuery({
-    queryKey: ["subscriber"],
+  const {refetch, data: users = [] } = useQuery({
+    queryKey: ["users"],
     queryFn: async () => {
-      const res = await axiosSecure.get("/newsletter");
+      const res = await axiosSecure.get("/users");
       return res.data;
     },
   });
+
+  const handleMakeAdmin = user => {
+     axiosSecure.patch(`/users/admin/${user._id}`)
+     .then(res => {
+        console.log(res.data)
+        if(res.data.modifiedCount > 0)
+        {
+            refetch(); 
+            //toast
+        toast.success(`${user.name} is Admin now.`, {
+            position: "top-right",
+          });
+        }
+     })
+  }
+
   return (
     <div>
       <Helmet>
-        <title>Fithub | Dashboard | Subscribers</title>
+        <title>Fithub | Dashboard | AllUsers</title>
       </Helmet>
 
-      <CustomTitle subHeader="List of" header="All Subscribers"></CustomTitle>
+      <CustomTitle subHeader="Have a look" header="All Users"></CustomTitle>
 
       <div className="text-center py-4">
         <h1 className="text-3xl font-bold">
-          Total Subscribers: {subscribers.length}
+          Total Users: {users.length}
         </h1>
       </div>
 
@@ -42,13 +59,17 @@ const AllSubscribers = () => {
             </thead>
             <tbody>
                 {
-                    subscribers.map((item,index) =>  <tr key={subscribers._id}>
+                    users.map((item,index) =>  <tr key={item._id}>
                     <th>{index + 1}</th>
-                    <td>{item.subscriber_name}</td>
-                    <td>{item.subscriber_email}</td>
+                    <td>{item.name}</td>
+                    <td>{item.email}</td>
                     <td>
-                        <button
+                       { item.role === "admin" ? <p className="bg-rose-500 text-white p-2 rounded">Admin</p> 
+                         :
+                         <button
+                         onClick={() => handleMakeAdmin(item)}
                          className="btn btn-ghost hover:bg-black"><FaUsers className="text-2xl text-rose-500"></FaUsers></button>
+                       }
                     </td>
                     
                   </tr>)
@@ -60,8 +81,10 @@ const AllSubscribers = () => {
           </table>
         </div>
       </div>
+
+
     </div>
   );
 };
 
-export default AllSubscribers;
+export default AllUsers;
