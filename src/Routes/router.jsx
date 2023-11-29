@@ -23,7 +23,7 @@ import AllUsers from "../Pages/DashboardPage/AllUsers/AllUsers";
 import AdminRoute from "./AdminRoute";
 import AllTrainers from "../Pages/DashboardPage/AllTrainers/AllTrainers";
 import AppliedTrainers from "../Pages/DashboardPage/AppliedTrainer/AppliedTrainers";
-import Payment from "../Pages/DashboardPage/Payment/Payment";
+
 
 const router = createBrowserRouter([
     {
@@ -50,22 +50,22 @@ const router = createBrowserRouter([
         {
           path: "/classDetails/:id",
           element:<ClassDetails></ClassDetails>,
-          loader: ({params}) => fetch(`http://localhost:5000/classes/${params.id}`)
+          loader: ({params}) => fetch(`https://fithub-server-brown.vercel.app/classes/${params.id}`)
         },
         {
           path: "/gallery",
           element:<Gallery></Gallery>,
-          loader: () => fetch(`http://localhost:5000/gallery`)
+          loader: () => fetch(`https://fithub-server-brown.vercel.app/gallery`)
         },
         {
           path: "/trainer",
           element: <TrainerPage></TrainerPage>,
-          loader:() => fetch(`http://localhost:5000/trainers`)
+          loader:() => fetch(`https://fithub-server-brown.vercel.app/trainers`)
         },
         {
            path: "/trainerDetails/:id",
            element:<TrainerDetails></TrainerDetails>,
-           loader: ({params}) => fetch(`http://localhost:5000/trainers/${params.id}`)
+           loader: ({params}) => fetch(`https://fithub-server-brown.vercel.app/trainers/${params.id}`)
         },
         {
           path:"/beTrainer",
@@ -74,14 +74,14 @@ const router = createBrowserRouter([
         {
           path:"/bookTrainer/:id",
           element: <PrivateRoutes><BookTrainer></BookTrainer></PrivateRoutes>,
-          loader: ({params}) => fetch(`http://localhost:5000/trainers/${params.id}`)
+          loader: ({params}) => fetch(`https://fithub-server-brown.vercel.app/trainers/${params.id}`)
          
         },
 
         {
           path:"/community",
           element:<Blogs></Blogs>,
-          loader: () => fetch(`http://localhost:5000/blogs`)
+          loader: () => fetch(`https://fithub-server-brown.vercel.app/blogs`)
         },
         
       ]

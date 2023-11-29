@@ -22,7 +22,7 @@ const [hasMore, setHasMore] = useState(true); // Assuming there is more data ini
 const fetchMoreData = async () => {
   try {
     // Fetch more data here based on the page variable
-    const response = await fetch(`http://localhost:5000/gallery?page=${page}`);
+    const response = await fetch(`https://fithub-server-brown.vercel.app/gallery?page=${page}`);
     const data = await response.json();
 
     // Assuming data.images is an array of new images
