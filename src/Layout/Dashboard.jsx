@@ -1,5 +1,6 @@
 import {
   FaAd,
+  FaBlog,
   FaBookOpen,
   FaDollarSign,
   FaEdit,
@@ -261,6 +262,22 @@ const Dashboard = () => {
               }
             >
               <FaList></FaList> Classes
+            </NavLink>
+          </li>
+
+
+          <li>
+            <NavLink
+              to="/community"
+              className={({ isActive, isPending }) =>
+                isPending
+                  ? "pending"
+                  : isActive
+                  ? "bg-white text-rose-500 font-bold hover:bg-black"
+                  : ""
+              }
+            >
+              <FaBlog></FaBlog> Community/Forum
             </NavLink>
           </li>
         </ul>

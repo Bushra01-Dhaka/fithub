@@ -20,6 +20,7 @@ import ProfileSetting from "../Pages/DashboardPage/ProfileSetting/ProfileSetting
 import RecommendedClasses from "../Pages/RecommendedClasses/RecommendedClasses";
 import AllSubscribers from "../Pages/DashboardPage/AllSubscriber/AllSubscribers";
 import AllUsers from "../Pages/DashboardPage/AllUsers/AllUsers";
+import AdminRoute from "./AdminRoute";
 
 const router = createBrowserRouter([
     {
@@ -86,6 +87,7 @@ const router = createBrowserRouter([
       path: 'dashboard',
       element: <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
       children: [
+        //normal user routes
         {
           path:"activityLog",
           element:<ActivityLog></ActivityLog>
@@ -99,14 +101,14 @@ const router = createBrowserRouter([
           element: <RecommendedClasses></RecommendedClasses>
         },
 
-        // admin routes
+        // admin only routes
         {
           path:"blogs",
           element:<AddBlogs></AddBlogs>
         },
         {
           path: "allUsers",
-          element:<AllUsers></AllUsers>
+          element:<AdminRoute><AllUsers></AllUsers></AdminRoute>
         },
         {
           path: "allSubscriber",
