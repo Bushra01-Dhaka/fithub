@@ -8,8 +8,6 @@ const ActivityLog = () => {
   console.log("package", packageData);
   // const [slot, setSlot] = useState(0);
 
-  
-
   // const selectedSlot = packageData[0].selected_slot;
   // const slotno = parseInt(selectedSlot);
   // console.log(slotno);
