@@ -21,6 +21,7 @@ import RecommendedClasses from "../Pages/RecommendedClasses/RecommendedClasses";
 import AllSubscribers from "../Pages/DashboardPage/AllSubscriber/AllSubscribers";
 import AllUsers from "../Pages/DashboardPage/AllUsers/AllUsers";
 import AdminRoute from "./AdminRoute";
+import AllTrainers from "../Pages/DashboardPage/AllTrainers/AllTrainers";
 
 const router = createBrowserRouter([
     {
@@ -113,6 +114,13 @@ const router = createBrowserRouter([
         {
           path: "allSubscriber",
           element:<AllSubscribers></AllSubscribers>,
+        },
+        {
+          path:"allTrainer",
+          element: <AllTrainers></AllTrainers>
+        },
+        {
+          path:"appliedTrainer"
         }
 
 
