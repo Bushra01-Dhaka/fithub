@@ -182,21 +182,6 @@ const Dashboard = () => {
                 </NavLink>
               </li>
 
-              <li>
-                <NavLink
-                  to="/dashboard/blogs"
-                  className={({ isActive, isPending }) =>
-                    isPending
-                      ? "pending"
-                      : isActive
-                      ? "bg-white text-rose-500 font-bold hover:bg-black"
-                      : ""
-                  }
-                >
-                  {" "}
-                  <FaEdit></FaEdit> Add New Forum
-                </NavLink>
-              </li>
             </>
           )}
 

@@ -7,6 +7,9 @@ const TrainerPage = () => {
     const trainer = useLoaderData();
    console.log(trainer);
 
+   const onlyTrainers = trainer.filter(items => items.status !== "user");
+   console.log("Only Trainer: ", onlyTrainers);
+
    
    
 
@@ -29,7 +32,7 @@ const TrainerPage = () => {
       
       <div className="bg-black grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-10 pt-10">
         {
-            trainer.map(card => <TrainerCard 
+            onlyTrainers.map(card => <TrainerCard 
             key={card._id}
             card={card}
             ></TrainerCard>)

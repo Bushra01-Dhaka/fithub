@@ -16,6 +16,9 @@ const AllTrainers = () => {
   });
   console.log(trainers);
 
+  const onlyTrainers = trainers.filter(items => items.status !== "user");
+  console.log("Only Trainer: ", onlyTrainers);
+
   return (
     <div>
       <Helmet>
@@ -26,7 +29,7 @@ const AllTrainers = () => {
 
       <div className="text-center py-4">
         <h1 className="text-3xl font-bold">
-          Total Trainers: {trainers.length}
+          Total Trainers: {onlyTrainers.length}
         </h1>
       </div>
 
@@ -48,7 +51,7 @@ const AllTrainers = () => {
     </thead>
     <tbody>
         {
-            trainers.map((item,index) =>  <tr key={item._id}>
+            onlyTrainers.map((item,index) =>  <tr key={item._id}>
             <td>{index + 1}</td>
             <td>
               <div className="flex items-center gap-3">

@@ -39,7 +39,7 @@ const BeATrainer = () => {
         weeklyHour,
         dailyHour,
         experience,
-        // status: "user"
+        status: "user"
      }
      console.log(trainerData);
      axiosSecure.post('/trainers', trainerData)

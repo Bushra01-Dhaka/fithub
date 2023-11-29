@@ -22,6 +22,7 @@ import AllSubscribers from "../Pages/DashboardPage/AllSubscriber/AllSubscribers"
 import AllUsers from "../Pages/DashboardPage/AllUsers/AllUsers";
 import AdminRoute from "./AdminRoute";
 import AllTrainers from "../Pages/DashboardPage/AllTrainers/AllTrainers";
+import AppliedTrainers from "../Pages/DashboardPage/AppliedTrainer/AppliedTrainers";
 
 const router = createBrowserRouter([
     {
@@ -120,7 +121,8 @@ const router = createBrowserRouter([
           element: <AllTrainers></AllTrainers>
         },
         {
-          path:"appliedTrainer"
+          path:"appliedTrainer",
+          element: <AppliedTrainers></AppliedTrainers>
         }
 
 

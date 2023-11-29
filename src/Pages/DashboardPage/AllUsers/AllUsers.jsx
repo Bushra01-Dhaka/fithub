@@ -54,7 +54,7 @@ const AllUsers = () => {
                 <th>#</th>
                 <th>Subscribers Name</th>
                 <th>Subscribers Email</th>
-                <th>Role</th>
+                <th>Make Admin</th>
               </tr>
             </thead>
             <tbody>
