@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const AllTrainers = () => {
   const axiosPublic = useAxiosPublic();
 
-  const { data: trainers = [], refetch } = useQuery({
+  const { data: trainers = []} = useQuery({
     queryKey: ["trainers"],
     queryFn: async () => {
       const res = await axiosPublic.get("/trainers");
@@ -71,7 +71,7 @@ const AllTrainers = () => {
             <td>{item.experience}+ years</td>
            
             <td>
-              <Link><button className="btn btn-sm bth-ghost text-rose-600">Pay</button></Link>
+              <Link to={`payment`}><button className="btn btn-sm bth-ghost text-rose-600">Pay</button></Link>
             </td>
           </tr>)
         }

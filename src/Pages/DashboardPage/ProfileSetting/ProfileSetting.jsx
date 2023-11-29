@@ -27,7 +27,7 @@ const ProfileSetting = () => {
             <h2 className="text-2xl font-bold">{user?.displayName}</h2>
             <p>{user?.email}</p>
             <div className="card-actions justify-center my-4">
-              <button className="btn bg-rose-500 text-white hover:bg-red-500">Update Profile</button>
+              <button  className="btn bg-rose-500 text-white hover:bg-red-500">Update Profile</button>
             </div>
           </div>
         </div>

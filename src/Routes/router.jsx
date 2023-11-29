@@ -23,6 +23,7 @@ import AllUsers from "../Pages/DashboardPage/AllUsers/AllUsers";
 import AdminRoute from "./AdminRoute";
 import AllTrainers from "../Pages/DashboardPage/AllTrainers/AllTrainers";
 import AppliedTrainers from "../Pages/DashboardPage/AppliedTrainer/AppliedTrainers";
+import Payment from "../Pages/DashboardPage/Payment/Payment";
 
 const router = createBrowserRouter([
     {
@@ -81,7 +82,8 @@ const router = createBrowserRouter([
           path:"/community",
           element:<Blogs></Blogs>,
           loader: () => fetch(`http://localhost:5000/blogs`)
-        }
+        },
+        
       ]
     },
 
@@ -120,6 +122,7 @@ const router = createBrowserRouter([
           path:"allTrainer",
           element: <AllTrainers></AllTrainers>
         },
+        
         {
           path:"appliedTrainer",
           element: <AppliedTrainers></AppliedTrainers>
