@@ -273,6 +273,9 @@ const Dashboard = () => {
 
       {/* dashboard content */}
       <div className="flex-1">
+        <div>
+          <h1 className="text-4xl font-extrabold text-center p-4 uppercase mt-4">Welcome to dashboard</h1>
+        </div>
         <Outlet></Outlet>
       </div>
     </div>

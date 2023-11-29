@@ -30,7 +30,7 @@ const About = () => {
             <span className="text-[#F72464] font-bold">FITHUB</span> is more than a website; it is a collective effort to empower individuals on their fitness journey. Together, Mayra and the FITHUB team strive to provide tailored, expert guidance, ensuring every user achieves their health and fitness goals with the best-in-class services and support.
             </p>
             
-            <Link><button className="my-4 btn bg-[#F72464] text-white rounded-md  hover:border-2 hover:border-[#F72464] hover:text-[#F72464]  hover:bg-white border-0 ">Explore Classes</button></Link>
+            <Link to="/classes"><button className="my-4 btn bg-[#F72464] text-white rounded-md  hover:border-2 hover:border-[#F72464] hover:text-[#F72464]  hover:bg-white border-0 ">Explore Classes</button></Link>
           </div>
         </div>
       </div>

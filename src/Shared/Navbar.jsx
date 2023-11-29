@@ -2,9 +2,11 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/logo/fithub.svg";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import useAdmin from "../Hooks/useAdmin";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [isAdmin] = useAdmin();
 
   const handleLogOut = () => {
     logOut()
@@ -33,19 +35,97 @@ const Navbar = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/gallery">Gallery</NavLink>
+        <NavLink to="/gallery" 
+        className={({ isActive, isPending }) =>
+        isPending
+          ? "pending"
+          : isActive
+          ? " text-[#F72464] font-bold underline  rounded"
+          : ""
+      }
+        >Gallery</NavLink>
       </li>
+
+
       <li>
-        <NavLink to="/trainer">Trainer</NavLink>
+        <NavLink to="/trainer"
+        className={({ isActive, isPending }) =>
+        isPending
+          ? "pending"
+          : isActive
+          ? " text-[#F72464] font-bold underline  rounded"
+          : ""
+      }
+        >Trainer</NavLink>
       </li>
+
+
       <li>
-        <NavLink to="/classes">Classes</NavLink>
+        <NavLink to="/classes"
+        className={({ isActive, isPending }) =>
+        isPending
+          ? "pending"
+          : isActive
+          ? " text-[#F72464] font-bold underline  rounded"
+          : ""
+      }
+        >Classes</NavLink>
       </li>
-      <li>
-        <NavLink to="/dashboard">Dashboard</NavLink>
+
+      {
+        user && isAdmin &&  <li>
+        <NavLink to="/dashboard/balance"
+        className={({ isActive, isPending }) =>
+        isPending
+          ? "pending"
+          : isActive
+          ? " text-[#F72464] font-bold underline  rounded"
+          : ""
+      }
+        >Dashboard</NavLink>
       </li>
+
+      }
+
+    {
+        user && !isAdmin &&  <li>
+        <NavLink to="/dashboard/activityLog"
+        className={({ isActive, isPending }) =>
+        isPending
+          ? "pending"
+          : isActive
+          ? " text-[#F72464] font-bold underline  rounded"
+          : ""
+      }
+        >Dashboard</NavLink>
+      </li>
+
+      }
+
+
+      {/* <li>
+        <NavLink to="/dashboard"
+        className={({ isActive, isPending }) =>
+        isPending
+          ? "pending"
+          : isActive
+          ? " text-[#F72464] font-bold underline  rounded"
+          : ""
+      }
+        >Dashboard</NavLink>
+      </li> */}
+
+
       <li>
-        <NavLink to="/community">Community/Forum</NavLink>
+        <NavLink to="/community" 
+        className={({ isActive, isPending }) =>
+        isPending
+          ? "pending"
+          : isActive
+          ? " text-[#F72464] font-bold underline  rounded"
+          : ""
+      }
+        >Community/Forum</NavLink>
       </li>
 
       {user && (

@@ -23,6 +23,7 @@ import AllUsers from "../Pages/DashboardPage/AllUsers/AllUsers";
 import AdminRoute from "./AdminRoute";
 import AllTrainers from "../Pages/DashboardPage/AllTrainers/AllTrainers";
 import AppliedTrainers from "../Pages/DashboardPage/AppliedTrainer/AppliedTrainers";
+import Balance from "../Pages/DashboardPage/Balance/Balance";
 
 
 const router = createBrowserRouter([
@@ -126,6 +127,10 @@ const router = createBrowserRouter([
         {
           path:"appliedTrainer",
           element: <AppliedTrainers></AppliedTrainers>
+        },
+        {
+          path: "balance",
+          element: <Balance></Balance>
         }
 
 
